@@ -12,7 +12,7 @@ if (isset($_SESSION['estudiantes'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login y Registro</title>
+    <title>Login y REgistro</title>
     <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 <body>
@@ -37,7 +37,7 @@ if (isset($_SESSION['estudiantes'])) {
                 <!--login-->
                 <form action="php/login_usuario.php" class="formulario__login" method="POST" >
                     <h2>Iniciar sesión</h2>
-                    <input type="text" placeholder="CC/TI" name="id">
+                    <input type="text" placeholder="Tarjeta de identidad" name="id">
                     <input type="password" placeholder="Contraseña" name="contrasena">
                     <button>Entrar</button>
                 </form>

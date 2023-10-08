@@ -80,7 +80,7 @@ $row = mysqli_fetch_assoc($result);
 
 /*
 if (!$result) {
-    echo 'Error en la consulta: ' . mysqli_error($conexion); //  error SQL
+    echo 'Error en la consulta: ' . mysqli_error($conexion); // Muestra el error SQL
     exit;
 }
 */
