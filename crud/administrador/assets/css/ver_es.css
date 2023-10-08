@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+table {
+    width: 83%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+
+/* Estilos para el botón */
+.boton-regresar {
+    padding: 10px 18px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin:  auto; /* Centra horizontalmente */
+    display: block; /* Asegura que ocupe todo el ancho disponible */
+    width: 92px;
+   
+}
+
+
+/* Estilo cuando el mouse pasa sobre el botón */
+.boton-regresar:hover {
+    background-color: #2980b9;
+}

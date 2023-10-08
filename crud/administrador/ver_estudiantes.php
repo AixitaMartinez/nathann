@@ -25,9 +25,11 @@ $result = mysqli_query($conexion, $query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Estudiantes</title>
+    <link rel="stylesheet" href="assets/css/ver_es.css">
 </head>
 <body>
-<h2>Lista de Estudiantes</h2>
+    <div class="contenedor">
+    <h2>Lista de Estudiantes</h2>
     <table>
         <tr>
             <th>Ti/CC</th>
@@ -55,6 +57,9 @@ $result = mysqli_query($conexion, $query);
         <?php } ?>
     </table>
 
-    <a href="bienvenida_docente.php">Regresar</a>
+    <a href="bienvenida_docente.php" class="boton-regresar">REGRESAR</a>
+    </div>
+
+    
 </body>
 </html>

@@ -7,7 +7,8 @@
 
 }
 body{
-    background-color: #a9b6ff;}
+    background-color: #eceacd;
+    }
 main{
     width: 100%;
     padding: 20px;
@@ -147,3 +148,4 @@ main{
     outline: none;
     border-radius: 6px;
 }
+
