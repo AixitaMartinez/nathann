@@ -99,9 +99,9 @@ body {
 }
 
 .btn-principal:hover {
-    color: #000;
+    color: #eeeeee;
     background-color: #044b26;
-    border: 0.1rem solid #000;
+    border: transparent;
 }
 
 /* Agregar estilos para otros botones si es necesario */
@@ -120,7 +120,7 @@ header p {
 }
 /* Estilo para el botón "Agregar más preguntas" */
 #agregar-pregunta {
-    background-color: #7DCEA0;
+    background-color: #6b84c8;
     color: #fff;
     font-weight: 700;
     padding: 10px 20px;
@@ -132,8 +132,15 @@ header p {
 }
 
 #agregar-pregunta:hover {
-    color: #000;
-    background-color: #044b26;
-    border: 0.1rem solid #000;
+    color:#eae7e7;
+    background-color: #354b86;
+    border: transparent;
 }
 
+input[type="text"] {
+    width: 50%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

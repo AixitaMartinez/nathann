@@ -168,7 +168,8 @@ a.selected{
     cursor: pointer;
     transition: all 300ms ease; 
 }
-/* tarjetas */
+
+/*  Tarjetas*/
 .container-card{
 	width: 100%;
 	display: flex;

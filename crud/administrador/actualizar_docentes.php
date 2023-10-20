@@ -197,13 +197,13 @@ footer {
     <!-- Formulario para actualizar la información -->
     <form action="" method="POST">
         <label for="nuevo_nombre">Nuevo Nombre:</label>
-        <input type="text" name="nuevo_nombre" required>
+        <input type="text" name="nuevo_nombre" value="<?php echo $row['nombre']; ?>" required>
         <br>
-        <label for="nuevo_id">Nueva Tarjeta de Identidad:</label>
-        <input type="text" name="nuevo_id" required>
+        <label for="nuevo_id">Cedula:</label>
+        <input type="text" name="nuevo_id" value="<?php echo $row['id_cedula']; ?>" required>
         <br>
         <label for="nuevo_correo">Nuevo Correo:</label>
-        <input type="email" name="nuevo_correo" required>
+        <input type="email" name="nuevo_correo" value="<?php echo $row['correo']; ?>" required>
        
         <label for="nueva_contrasena">Nueva Contraseña:</label>
         <input type="password" name="nueva_contrasena" required>

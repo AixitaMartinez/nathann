@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Iterar a través de las opciones A, B, C y D
                 for ($letra = 'a'; $letra <= 'd'; $letra++) {
                     $opcion = $_POST["preg{$i}_opcion_{$letra}"];
+                    
                     echo "Opción $letra: $opcion<br>";
                     // Verificar si $opcion no es nulo ni una cadena vacía
                     if (!is_null($opcion) && $opcion !== "") {
@@ -139,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <!-- Fin Pregunta examen -->
         </div>
-        <button type="button" id="agregar-pregunta">Agregar más preguntas</button>
+        <button type="button" id="agregar-pregunta">Agregar otra pregunta</button>
         <input class="btn btn-principal btn-examen" type="submit" value="Guardar">
         <script>
         document.addEventListener("DOMContentLoaded", function () {

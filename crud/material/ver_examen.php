@@ -152,9 +152,7 @@ tr:hover {
 <header>
     <div class="cabecera">
         <div class="btn-container">
-            <a href="crear-examen.php" class="btn">
-                Crear examen
-            </a>
+         
             <a href="crear-examen.php" class="btn">
                 Calificaciones
             </a>
@@ -166,6 +164,7 @@ tr:hover {
     <table>
         <thead>
             <th>Nombre</th>
+            <th>Aciertos</th>
             <th>Acciones</th>
         </thead>
         <tbody>
@@ -173,16 +172,13 @@ tr:hover {
             <?php while($examen = mysqli_fetch_assoc($resultado)):?>
                 <tr>
                     <td><?php echo $examen['nombre']; ?></td>
+                    <td class="t-center"><?php echo isset($examen['aciertos']) ? $examen['aciertos'] : 0; ?>/5</td>
+
                     <td class="iconos">
-                        <a href="actualizar-examen.php?id=<?php echo $examen['id']; ?>">
-                            <i class="icono icono-editar fa-solid fa-pen-to-square"></i>
+                        <a href="examen/realizar-examen.php?id=<?php echo $examen['id']; ?>">
+                             <i class="fa-solid fa-eye"></i> Realizar
                         </a>
-                        <form action="" method="POST" id="eliminarRegistro_<?php echo $examen['id']; ?>">
-                            <input type="hidden" name="id" value="<?php echo $examen['id']; ?>">
-                            <a href="#" onclick="confirmarEliminacion(<?php echo $examen['id']; ?>)">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
-                        </form>
+                        
                     </td>
                 </tr>
             <?php endwhile; ?>

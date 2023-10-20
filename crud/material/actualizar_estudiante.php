@@ -213,21 +213,22 @@ footer {
         <p>Tarjeta de Identidad: <?php echo $row['id']; ?></p>
         <p>Correo: <?php echo $row['correo']; ?></p>
         <p>Grado: <?php echo $rowg['descripción']; ?></p>
-        <p>Contraseña: ***</p> <br>
+        <p>Contraseña: *</p> <br>
         <h2>Actualizar Información</h2> 
         
         <!-- Formulario para actualizar la información -->
 
         <form action="" method="POST">
         <label for="nuevo_nombre">Nuevo Nombre:</label>
-        <input type="text" name="nuevo_nombre" required>
+        <input type="text" name="nuevo_nombre" value=" <?php echo $row['nombre']; ?>"required>
         <br>
         <label for="nuevo_id">Nueva Tarjeta de Identidad:</label>
-        <input type="text" name="nuevo_id" required>
+        <input type="text" name="nuevo_id" value="<?php echo $row['id']; ?>" required>
         <br>
         <label for="nuevo_correo">Nuevo Correo:</label>
-        <input type="email" name="nuevo_correo" required>
-        <label for="nuevo_correo">Nuevo Grado:</label>
+        <input type="email" name="nuevo_correo" value="<?php echo $row['correo']; ?>" required>
+
+        <label for="nuevo_grado">Nuevo Grado:</label>
         <select  name="nuevo_grado">
                         <option value="1">Undécimo</option>
                         <option value="2">Décimo</option>
