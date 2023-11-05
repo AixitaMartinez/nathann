@@ -1,14 +1,117 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+* {
     margin: 0;
     padding: 0;
-    text-align: center;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
 }
+
+body {
+    font-family: Inter, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 80%;
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+/* Estilos del formulario */
+.form_exam {
+    width: min(90%, 90rem);
+    padding: 30px;
+}
+
+.form_grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+label {
+    font-weight: 700;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+/* Estilos para las opciones de respuesta */
+.opcion {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.opcion label {
+    font-weight: 700;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.opcion input[type="radio"] {
+    margin-left: 10px;
+}
+
+/* Estilos de los botones */
+.btn {
+    background-color: #fff;
+    color: #000;
+    font-weight: 700;
+    padding: 15px 25px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    background-color: #044b26;
+    color: #fff;
+}
+
+.btn-principal {
+    background-color: #7DCEA0;
+    color: #fff;
+    font-weight: 700;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-principal:hover {
+    background-color: #044b26;
+}
+
 /* Estilos para el encabezado */
 header {
-    background-color: #7DCEA0 ;
+    background-color: #7DCEA0;
     padding: 25px 0;
+    text-align: center;
 }
 
 header p {
@@ -18,36 +121,39 @@ header p {
     margin: 0;
 }
 
-form {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
-
-label {
-    display: block;
-    margin: 10px 0;
-}
-
-input[type="text"] {
-    width: 50%;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-input[type="submit"] {
-    background-color: #3498db;
+/* Estilo para el botón "Agregar más preguntas" */
+#agregar-pregunta {
+    background-color: #6b84c8;
     color: #fff;
-    padding: 10px 20px;
+    font-weight: 700;
+    padding: 15px 25px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#agregar-pregunta:hover {
+    background-color: #354b86;
+}
+
+/* Estilos para los cuadros de pregunta y respuesta */
+
+
+/* Estilo para el botón "Guardar Cambios" */
+input[type="submit"] {
+    background-color: #7DCEA0;
+    color: #fff;
+    font-weight: 700;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #258cd1;
+    background-color: #044b26;
 }

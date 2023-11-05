@@ -1,12 +1,4 @@
-<?php
-session_start();
-if (isset($_SESSION['estudiantes'])) {
-    header("location: material/bienvenida.php");
-} elseif (isset($_SESSION['docentes'])) {
-    header("location: administrador/bienvenida_docente.php");
-}
 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

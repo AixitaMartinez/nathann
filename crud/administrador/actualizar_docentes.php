@@ -54,6 +54,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </script>';
     }
 }
+ //Foto de perfil
+ $foto_perfil = "SELECT imagen FROM multimedia_doc WHERE docente_id ={$id_docente}";
+ $resultado_perfil = mysqli_query($conexion, $foto_perfil);
+
+ $nombre_imagen = mysqli_fetch_assoc($resultado_perfil);
+ $cantidad_imagen = mysqli_num_rows($resultado_perfil);
 
 ?>
 
@@ -62,66 +68,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../material/assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/actualizar_doc.css">
     <title>Perfil</title>
     <script src="https://kit.fontawesome.com/9fd7ac2cb8.js" crossorigin="anonymous"></script>
-    <style>
-/* Estilos para el formulario */
-form {
-    margin-top: 10px;
-}
 
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-select {
-    width: 25%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-input[type="submit"] {
-    background-color: green;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #444;
-}
-
-/* Estilos para los mensajes de información */
-p {
-    margin-top: 10px;
-}
-
-/* Estilos para el botón de eliminar cuenta */
-form[action=""] {
-    margin-top: 20px;
-}
-
-/* Estilos para el pie de página */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-    </style>
 </head>
 <body id="body">
       
@@ -184,17 +134,36 @@ footer {
     </div>
 
     <main>
-    <h2>Actualizar Información</h2>
+    <div class="container">
+    <div class="boton-modal">
+            <label for="btn-modal2">
+            <?php 
+                if ($cantidad_imagen > 0) {
+                    echo '<img src="imagenes/' . $nombre_imagen['imagen'] . '" width="200px" height="200px" class="foto-perfil" title="Cambiar foto de perfil">';
+                } else {
+                    echo '<img src="imagenes/foto.png" class="foto-perfil">';
+                }
+            ?>
+            </label>
+        </div>
+        <input type="checkbox" id="btn-modal2">
+        <div class="container-modal2">
+            <div class="content-modal">
+            <h3>Cambiar Foto de Perfil</h3>
+            <form action="imagen.php" method="post" enctype="multipart/form-data">
+                <p>
+                    <input type="file" name="imagen">
+                </p>
+                <div class="btn-cerrar">
+                    <label for="btn-modal2">Cerrar</label>
+                    <input type="submit" name="guardar" value="Guardar" class="guardar-modal">
+                </div>
+            </form>
+        </div>
     
-    <!-- Mostrar la información actual del docente -->
-    <p>Información actual:</p>
-    <p>Nombre: <?php echo $row['nombre']; ?></p>
-    <p>Cedula de ciudadanía: <?php echo $row['id_cedula']; ?></p>
-    <p>Correo: <?php echo $row['correo']; ?></p>
+        <label for="btn-modal2" class="cerrar-modal"></label>
+        </div>
 
-    <p>Contraseña: *********</p>
-
-    <!-- Formulario para actualizar la información -->
     <form action="" method="POST">
         <label for="nuevo_nombre">Nuevo Nombre:</label>
         <input type="text" name="nuevo_nombre" value="<?php echo $row['nombre']; ?>" required>
@@ -204,13 +173,15 @@ footer {
         <br>
         <label for="nuevo_correo">Nuevo Correo:</label>
         <input type="email" name="nuevo_correo" value="<?php echo $row['correo']; ?>" required>
-       
+        <br>
         <label for="nueva_contrasena">Nueva Contraseña:</label>
         <input type="password" name="nueva_contrasena" required>
         <br>
         <br>
         <input type="submit" value="Actualizar">
     </form>
+    </div>
+  
     </main>
     <script src="../material/assets/js/script.js"></script>
 </body>

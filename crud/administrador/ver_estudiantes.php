@@ -14,8 +14,24 @@ if (!isset($_SESSION['docentes'])) {
 include '../php/conexion_be.php';
 
 // Realizar una consulta SQL para obtener los datos de los estudiantes
-$query = "SELECT * FROM estudiantes";
-$result = mysqli_query($conexion, $query);
+$queryy = "SELECT * FROM estudiantes";
+$result = mysqli_query($conexion, $queryy);
+//eliminar estudiante
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $id = $_POST['id'];
+
+    $query = "DELETE FROM multimedia WHERE estudiante_id = {$id}";
+    $resultado = mysqli_query($conexion, $query);
+
+    $query = "DELETE FROM usuarios_examenes WHERE estudiante_id = {$id}";
+    $resultado = mysqli_query($conexion, $query);
+    
+    $query = "DELETE FROM estudiantes WHERE id = {$id}";
+    $resultado = mysqli_query($conexion, $query);
+
+   
+}
 
 ?>
 
@@ -26,6 +42,15 @@ $result = mysqli_query($conexion, $query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Estudiantes</title>
     <link rel="stylesheet" href="assets/css/ver_es.css">
+    <script src="https://kit.fontawesome.com/9fd7ac2cb8.js" crossorigin="anonymous"></script>
+    <script>
+    function confirmarEliminacion(id) {
+        var confirmacion = confirm("¿Estás seguro de que deseas eliminar este estudiante?");
+        if (confirmacion) {
+            document.getElementById("eliminarRegistro_" + id).submit();
+        }
+    }
+</script>
 </head>
 <body>
     <div class="contenedor">
@@ -36,8 +61,7 @@ $result = mysqli_query($conexion, $query);
             <th>Nombre</th>
             <th>Correo</th>
             <th>Grado</th>
-       
-            <!-- Agrega más encabezados de columnas según tus necesidades -->
+            <th>Acciones</th>
         </tr>
         <?php while ($row = mysqli_fetch_assoc($result)) { ?>
             <tr>
@@ -52,9 +76,16 @@ $result = mysqli_query($conexion, $query);
                 $rowg = mysqli_fetch_assoc($resultg);
                 ?>
                 <td><?php echo $rowg['descripción']; ?></td>
-                <!-- Agrega más celdas de datos según tus necesidades -->
-            </tr>
+                <td> <form action="" method="POST" id="eliminarRegistro_<?php echo $row['id']; ?>">
+                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                    <a href="#" onclick="confirmarEliminacion(<?php echo $row['id']; ?>)">
+                    <i class="fa-solid fa-trash"></i>
+                    </a>
+                    </td>
+           </form>
+           
         <?php } ?>
+        
     </table>
 
     <a href="bienvenida_docente.php" class="boton-regresar">REGRESAR</a>

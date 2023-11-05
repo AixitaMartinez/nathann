@@ -1,0 +1,110 @@
+ /* Estilos generales */
+ body {
+    font-family: 'Arial', sans-serif;
+    background-color:#7DCEA0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor principal del examen */
+.quiz-container {
+    max-width: 800px;
+    width: 90%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Título del examen */
+.quiz-title {
+    font-size: 28px;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    color: #333;
+}
+
+/* Pregunta y opciones */
+.quiz-question {
+    margin-top: 20px;
+}
+
+/* Etiqueta de opción */
+.quiz-option-label {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    color: #333;
+}
+
+/* Menú desplegable de opciones */
+.quiz-select {
+    font-size: 16px;
+    padding: 5px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+/* Respuestas a las preguntas */
+.quiz-answers {
+    margin-top: 20px;
+}
+
+/* Botón de siguiente */
+.quiz-button {
+    background-color: #66cdaa;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.quiz-button:hover {
+    background-color: #4c9c7a;
+}
+
+/* Mensaje de finalización */
+.quiz-container p {
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Iconos (puedes personalizar los estilos) */
+.fa {
+    margin-right: 5px;
+}
+
+/* Animaciones suaves */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Reglas de medios para diseño responsive */
+@media (max-width: 768px) {
+    .quiz-container {
+        max-width: 90%;
+    }
+}
+
+input:disabled {
+    background-color: transparent; /* Hacer que el fondo sea transparente */
+    border: none; /* Eliminar el borde */
+    outline: none; /* Eliminar el resaltado de enfoque */
+    font-size: 18px;
+    color: black;
+}

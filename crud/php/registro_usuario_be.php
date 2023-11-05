@@ -47,6 +47,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_stmt_bind_param($stmt, "isssii", $id, $nombre, $correo, $contrasena_encriptada, $id_cargo, $grado);
 
     if (mysqli_stmt_execute($stmt)) {
+        // Registro exitoso, ahora asigna exámenes al estudiante
+        $query_doc = "SELECT id_cedula FROM docentes";
+        $resultado_doc = mysqli_query($conexion, $query_doc);
+        $docente_id = mysqli_fetch_assoc($resultado_doc);
+        $docente_id = $docente_id["id_cedula"];
+
+        // Recorre la lista de exámenes y asígnalos al nuevo estudiante
+        $query_es = "SELECT * FROM examenes";
+        $examenes = mysqli_query($conexion, $query_es);
+        
+        while ($examen = mysqli_fetch_assoc($examenes)) {
+            $examen_id = $examen['id'];
+
+            // Inserta un registro en la tabla usuarios_examenes para asignar el examen al estudiante
+            $query = "INSERT INTO usuarios_examenes (estudiante_id, docente_id, examen_id) 
+                    VALUES ($id, $docente_id, $examen_id)";
+            $resultado = mysqli_query($conexion, $query);
+
+            if (!$resultado) {
+                // Manejar el caso en el que la inserción falle
+                echo '<script>
+                    alert("Error al asignar un examen al estudiante");
+                </script>';
+            }
+        }
+
         echo '<script>
             alert("Usuario almacenado exitosamente");
             window.location = "../index.php";
@@ -61,6 +87,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     mysqli_stmt_close($stmt);
 }
-
-
 ?>

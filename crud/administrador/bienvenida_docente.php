@@ -70,7 +70,7 @@ if (!$result) {
                 </div>
             </a>
             
-            <a href="#">
+            <a href="examen/editar-examen.php">
                 <div class="option">
                     <i class="fa-solid fa-bars-progress"></i>
                     <h4>Simulacros</h4>
@@ -113,10 +113,20 @@ if (!$result) {
 	<div class="contenido-card">
 		<h3>Examenes</h3>
 		<p>En este item podrás crear examenes, visualizar los disponibles, actualizar y eliminar.  </p>
-		<a href="editar-examen.php">Editar</a>
+		<a href="examen/editar-examen.php">Editar</a>
 	</div>
 </div>
 
+<div class="card">
+	<figure>
+		<img src="https://totumat.files.wordpress.com/2020/03/calificaciones.jpg">
+	</figure>
+	<div class="contenido-card">
+		<h3>Contenido</h3>
+		<p>En este item podrás crear contenido para tus estudiantes.  </p>
+		<a href="contenido/index_contenido.php">Ver</a>
+	</div>
+</div>
     
 
     <script src="../material/assets/js/script.js"></script>

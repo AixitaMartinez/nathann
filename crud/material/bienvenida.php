@@ -18,6 +18,8 @@ $id_estudiante = $_SESSION['estudiantes'];
 $query = "SELECT nombre FROM estudiantes WHERE id = '$id_estudiante'";
 $result = mysqli_query($conexion, $query);
 $row = mysqli_fetch_assoc($result);
+
+//obtener categorias y contenido
 ?>
 
 
@@ -29,10 +31,23 @@ $row = mysqli_fetch_assoc($result);
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Inicio</title>
     <script src="https://kit.fontawesome.com/9fd7ac2cb8.js" crossorigin="anonymous"></script>
+    <style>
+        .container {
+        max-width: 60%;
+        width: 60%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f0f5f2;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #d9e6d9;
+        margin-top: 7px;
+        padding-left: 100px;
+        
+    }
+
+    </style>
 </head>
 <body id="body">
-    
-    
  
     <header>
         <div class="icon__menu">
@@ -56,7 +71,7 @@ $row = mysqli_fetch_assoc($result);
                 </div>
             </a>
 
-            <a href="#">
+            <a href="../administrador/contenido/ver_contenidos.php">
                 <div class="option">
                     <i class="far fa-file" title="Portafolio"></i>
                     <h4>Material</h4>
@@ -117,7 +132,29 @@ $row = mysqli_fetch_assoc($result);
 		<a href="#">Leer Màs</a>
 	</div>
 </div>
+<div class="container">
+    <h1>Contenido</h1>
+    <ul>
+        <?php
 
+        if ($conexion->connect_error) {
+            die("Error de conexión: " . $conexion->connect_error);
+        }
+
+        $sql = "SELECT * FROM categorias";
+        $result = $conexion->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $categoria_id = $row["id"];
+                $nombre_categoria = $row["nombre"];
+                echo "<li><a href='../administrador/contenido/ver_contenidos.php?categoria_id=$categoria_id'>$nombre_categoria</a></li>";
+            }
+        }
+        $conexion->close();
+        ?>
+    </ul>
+</div>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
